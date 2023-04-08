@@ -42,7 +42,7 @@ function seconds_to_time {
 	h=$((totalSeconds/60/60%24))
 	m=$((totalSeconds/60%60))
 	s=$((totalSeconds%60))
-
+	
 	local time
 
 	(( $d )) && time+="$d day$( (( d > 1 )) && echo s) "
@@ -68,7 +68,7 @@ function echo_exec {
 	((totaltime+=$runtime))
 
 	if [ $ret -eq 0 ]; then
-		echo_bold "The process \"$@\" exited normally ($(seconds_to_time $runtime))"
+    	echo_bold "The process \"$@\" exited normally ($(seconds_to_time $runtime))"
 	else
 		echo_bold "The process \"$@\" failed ($(seconds_to_time $runtime))"
 	fi
